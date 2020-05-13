@@ -1,3 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Playfair+Display:wght@800&display=swap');
+
+/* font-family: 'Montserrat', sans-serif; */
+/* font-family: 'Playfair Display', serif; */
+
+:root{
+    --main: rgb(255, 194, 51);
+    --dk: rgb(116, 121, 124);
+    --dkdark: rgb(100, 104, 107);
+    --lt: rgb(239, 245, 245);
+}
+/* *{ outline: 1px solid rgba(255,0,0,0.15); } */
 body{
-    background-color: rgb(31, 55, 87);
+    background-color: var(--dark);
+    font-family: 'Montserrat', sans-serif;
+}
+.left-sidebar{
+    background-color: var(--lt);
+}
+.right-sidebar{
+    background-color: #fff;
+}
+
+/* Brand */
+.brand .brand-name{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--dk);
+}
+.brand .search-bar{
+    margin-top: 1.7rem;
+}
+.brand .brand-name span{
+    font-weight: 900;
+}
+.cart-btn{
+    opacity: 0.6;
+    transition: 0.25s;
+}
+.cart-btn:hover{
+    opacity: 0.9;
+}
+
+/* My-Nav */
+.my-nav a{
+    color: var(--dk);
+}
+
+
+/* Cart Headings PlayFair */
+.cart-heading{
+    font-family: 'Playfair Display', serif;
+}
+
+/* Details left  */
+.counter-btn{
+    background-color: transparent;
+    border: none;
+    padding: 3px 10px;
+    outline: none !important;
+}
+.counter-btn-left:active{
+    box-shadow: inset -3px 0 8px rgba(0,0,0,0.25);
+}
+.counter-btn-right:active{
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.25);
+}
+#item-no{
+    padding: 3px 20px;
+}
+#item-price {
+    padding: 3px 30px;
+}
+.addToCart-btn{
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    outline: none !important;
+    border-radius: 50px;
+    box-shadow: 0 4px 0 #811e28;
+    transition: 0.25s;
+}
+.addToCart-btn:active{
+    box-shadow: 0 0 0 #811e28;
+    transform: translateY(4px);
+}
+.addToCart-btn:hover{
+    background-color: #e73546;
+}
+
+
+/* Products - right */
+.product-card{
+    cursor: pointer;
+    transition: 0.25s;
+}
+.product-card:hover{
+    border-color: var(--dk);
 }

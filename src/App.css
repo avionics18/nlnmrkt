@@ -1,0 +1,38 @@
+/* All the utility classes here */
+
+p{
+    font-size: 14px;
+}
+
+.bg-dk{
+    background-color: var(--dk);
+}
+.bg-lt{
+    background-color: var(--lt);
+}
+
+.fz-12{
+    font-size: 12px;
+}
+.text-dk{
+    color: var(--dk);
+}
+.text-dkdark{
+    color: var(--dkdark);
+}
+.text-lt{
+    color: var(--lt);
+}
+
+.fw-3{
+    font-weight: 300;
+}
+.fw-4{
+    font-weight: 400;
+}
+.fw-7{
+    font-weight: 700;
+}
+.fw-9{
+    font-weight: 900;
+}
