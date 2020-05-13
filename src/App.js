@@ -84,16 +84,8 @@ export default class App extends Component {
     }
 
 
-    showCategoryItemsHandler = (category) => {
-        switch(category){
-            case "all": this.setState({filteredProducts: [...this.state.products]});
-                        break;
-            case "fruit": this.setState({filteredProducts: [...this.state.products.filter(element => element.category==="fruit")]});
-                        break;
-            case "vegetable": this.setState({filteredProducts: [...this.state.products.filter(element => element.category==="vegetable")]});
-                        break;
-            default: console.log(category);
-        }
+    categoryHandler = (category) => {
+        console.log("hello");
     }
 
     
@@ -113,7 +105,7 @@ export default class App extends Component {
                         <Details eachProduct={this.state.products.filter(element=>element.show_details===true)} />
                     </div>
                     <div className="col-md-8 right-sidebar">
-                        <Food products={this.state.filteredProducts} showDetailsHandler={this.showDetailsHandler} showCategoryItemsHandler={this.showCategoryItemsHandler} />
+                        <Food products={this.state.products} showDetailsHandler={this.showDetailsHandler} categoryHandler={this.categoryHandler} />
                     </div>
                 </div>
             </div>
