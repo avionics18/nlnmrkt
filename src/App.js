@@ -64,6 +64,11 @@ export default class App extends Component {
 
         filteredProducts: []
     }
+
+
+    componentWillMount() {
+        this.setState({filteredProducts: [...this.state.products]});
+    }
     
 
     showDetailsHandler = (id) => {
@@ -78,14 +83,25 @@ export default class App extends Component {
             }
         });
 
-        const newArr = [...originalArr];
-        newArr.splice(i, 1, newObj);
-        this.setState({products: newArr});
+        originalArr.splice(i, 1, newObj);
+        this.setState({products: originalArr});
     }
 
 
-    categoryHandler = (category) => {
-        console.log("hello");
+    categoryHandler = (e, category) => {
+        console.log(category);
+        // getting all the objs with required category
+        if(category==="all"){
+            this.setState({filteredProducts: [...this.state.products]});
+        } else {
+            const arr = this.state.products.filter(element=>element.category===category);
+            this.setState({filteredProducts: arr});
+        }
+
+        // adding active class to the button clicked
+        const buttons = document.querySelectorAll("#category-btns > button");
+        buttons.forEach(element=>element.classList.remove("active"));
+        e.target.classList.add("active");
     }
 
     
@@ -105,7 +121,7 @@ export default class App extends Component {
                         <Details eachProduct={this.state.products.filter(element=>element.show_details===true)} />
                     </div>
                     <div className="col-md-8 right-sidebar">
-                        <Food products={this.state.products} showDetailsHandler={this.showDetailsHandler} categoryHandler={this.categoryHandler} />
+                        <Food filteredProducts={this.state.filteredProducts} showDetailsHandler={this.showDetailsHandler} categoryHandler={this.categoryHandler} />
                     </div>
                 </div>
             </div>
