@@ -9,7 +9,7 @@
     --dkdark: rgb(100, 104, 107);
     --lt: rgb(239, 245, 245);
 }
-/* *{ outline: 1px solid rgba(255,0,0,0.15); } */
+ /**{ outline: 1px solid rgba(255,0,0,0.15); } */
 body{
     background-color: var(--dark);
     font-family: 'Montserrat', sans-serif;
@@ -33,19 +33,34 @@ body{
 .brand .brand-name span{
     font-weight: 900;
 }
+
+
+/* My-Nav */
 .cart-btn{
     opacity: 0.6;
     transition: 0.25s;
 }
 .cart-btn:hover{
-    opacity: 0.9;
+    opacity: 1;
 }
-
-/* My-Nav */
+.opacity-100{
+    opacity: 1;
+}
 .my-nav a{
     color: var(--dk);
 }
-
+.del-btn{
+    background-color: var(--danger);
+    color: white;
+    border: none !important;
+    outline: none !important;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+}
+.del-btn:hover{
+    background-color: var(--dark);
+}
 
 /* Cart Headings PlayFair */
 .cart-heading{
