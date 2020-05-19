@@ -36,12 +36,15 @@ body{
 
 
 /* My-Nav */
-.cart-btn{
+.cart-icon{
     opacity: 0.6;
     transition: 0.25s;
 }
-.cart-btn:hover{
+.cart-icon:hover{
     opacity: 1;
+}
+.my-nav .active{
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 }
 .opacity-100{
     opacity: 1;
@@ -89,13 +92,14 @@ body{
 .addToCart-btn{
     display: block;
     width: 100%;
-    padding: 8px 10px;
+    padding: 12px 0;
     background-color: #dc3545;
     color: white;
     border: none;
     outline: none !important;
-    border-radius: 50px;
-    box-shadow: 0 4px 0 #811e28;
+    border-radius: 5px;
+    box-shadow: 0 6px 0 #811e28;
+    cursor: pointer;
     transition: 0.25s;
 }
 .addToCart-btn:active{

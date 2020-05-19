@@ -101,11 +101,110 @@ export default class App extends Component {
                 category: "vegetable",
                 buyKG: 5
             },
+            {
+                id: v4(),
+                name: "Watermelon",
+                img: "./imgs/food/watermelon.png",
+                img2: "./imgs/food/sample.png",
+                price: 35,
+                category: "fruit",
+                buyKG: 3
+            },
+            {
+                id: v4(),
+                name: "Kiwi",
+                img: "./imgs/food/kiwi.png",
+                img2: "./imgs/food/sample.png",
+                price: 25,
+                category: "fruit",
+                buyKG: 4
+            },
+            {
+                id: v4(),
+                name: "Raspberry",
+                img: "./imgs/food/raspberry.png",
+                img2: "./imgs/food/sample.png",
+                price: 20,
+                category: "fruit",
+                buyKG: 2
+            },
+            {
+                id: v4(),
+                name: "Mushroom",
+                img: "./imgs/food/mushroom.png",
+                img2: "./imgs/food/sample.png",
+                price: 50,
+                category: "vegetable",
+                buyKG: 1
+            },
+            {
+                id: v4(),
+                name: "Mushroom",
+                img: "./imgs/food/mushroom.png",
+                img2: "./imgs/food/sample.png",
+                price: 50,
+                category: "vegetable",
+                buyKG: 1
+            },
+            {
+                id: v4(),
+                name: "Mushroom",
+                img: "./imgs/food/mushroom.png",
+                img2: "./imgs/food/sample.png",
+                price: 50,
+                category: "vegetable",
+                buyKG: 1
+            },
+            {
+                id: v4(),
+                name: "Mushroom",
+                img: "./imgs/food/mushroom.png",
+                img2: "./imgs/food/sample.png",
+                price: 50,
+                category: "vegetable",
+                buyKG: 1
+            },
+            {
+                id: v4(),
+                name: "Mushroom",
+                img: "./imgs/food/mushroom.png",
+                img2: "./imgs/food/sample.png",
+                price: 50,
+                category: "vegetable",
+                buyKG: 1
+            },
+            {
+                id: v4(),
+                name: "Mushroom",
+                img: "./imgs/food/mushroom.png",
+                img2: "./imgs/food/sample.png",
+                price: 50,
+                category: "vegetable",
+                buyKG: 1
+            },
+            {
+                id: v4(),
+                name: "Mushroom",
+                img: "./imgs/food/mushroom.png",
+                img2: "./imgs/food/sample.png",
+                price: 50,
+                category: "vegetable",
+                buyKG: 1
+            },
+            {
+                id: v4(),
+                name: "Mushroom",
+                img: "./imgs/food/mushroom.png",
+                img2: "./imgs/food/sample.png",
+                price: 50,
+                category: "vegetable",
+                buyKG: 1
+            },
         ]
     }
 
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.setState({filteredProducts: [...this.state.products]});
     }
     
@@ -134,7 +233,7 @@ export default class App extends Component {
     
     render() {
         return (
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row no-gutters">
                     <div className="col-md-4 left-sidebar">
                         <Brand />

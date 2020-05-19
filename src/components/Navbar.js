@@ -16,12 +16,22 @@ export default function Navbar(props) {
     const toggleViewCart = (e) => {
         const cart = document.querySelector("#cart");
         cart.classList.toggle("d-none");
-        e.target.classList.toggle("opacity-100");
+        document.querySelector(".cart-btn").classList.toggle("active");
+        document.querySelector(".cart-icon").classList.toggle("opacity-100");
     }
     const closeCart = (e) => {
         const cart = document.querySelector("#cart");
         cart.classList.add("d-none");
-        document.querySelector(".cart-btn").classList.remove("opacity-100");
+        document.querySelector(".cart-btn").classList.remove("active");
+        document.querySelector(".cart-icon").classList.remove("opacity-100");
+    }
+
+    const calcTotal = () => {
+        let total = 0;
+        props.cartItems.forEach(element=>{
+            total = total + (element.buyKG * element.price);
+        });
+        return total.toFixed(2);
     }
 
     return (
@@ -29,8 +39,8 @@ export default function Navbar(props) {
             <div className="my-nav px-3 pt-4 text-right position-relative">
                 <a href="#!" className="btn">My Acount</a>
                 <a href="#!" className="btn">Orders</a>
-                <a href="#!" className="btn" onClick={(e)=>toggleViewCart(e)}>
-                    <img className="cart-btn" src="./imgs/icons/cart.png" width="22" alt="cart"/>
+                <a href="#!" className="btn cart-btn" onClick={(e)=>toggleViewCart(e)}>
+                    <img className="cart-icon" src="./imgs/icons/cart.png" width="22" alt="cart"/>
                     <span className="badge badge-danger rounded-pill">{props.cartItems.length}</span>
                 </a>
                 <div id="cart" className="card shadow-lg text-left fade-animation d-none" style={cartStyling}>
@@ -40,14 +50,14 @@ export default function Navbar(props) {
                     <div className="card-body">
                         {props.cartItems.map(element=>
                             <div className="bg-light border rounded p-2 mb-2 shadow-sm d-flex" key={element.id}>
-                                <p className="m-0 flex-1" style={{flex: "1"}}>{element.name} <span className="badge bade-dark">{element.buyKG}</span></p>
+                                <p className="m-0 flex-1" style={{flex: "1"}}>{element.name} <b>x {element.buyKG}</b></p>
                                 <button className="del-btn rounded">X</button>
                             </div>
                         )}
                     </div>
                     <div className="card-footer p-0">
                         <div className="d-flex justify-content-between">
-                            <div className="py-3 px-4 font-weight-bold">Total: Rs. 325</div>
+                            <div className="py-3 px-4 font-weight-bold"><span className="text-secondary">Total:</span> Rs. {calcTotal()}</div>
                             <button className="btn btn-dark m-0 rounded-0 px-4" onClick={(e)=>closeCart(e)}>Close</button>
                         </div>
                     </div>
