@@ -24,6 +24,7 @@ export default function Navbar(props) {
         cart.classList.add("d-none");
         document.querySelector(".cart-btn").classList.remove("active");
         document.querySelector(".cart-icon").classList.remove("opacity-100");
+        alert("Will add that feature soon!!!");
     }
 
     const calcTotal = () => {
@@ -47,7 +48,7 @@ export default function Navbar(props) {
                     <div className="card-header">
                         <h4 className="m-0 fw-7 text-dk">CART<span className="badge badge-dark float-right">{props.cartItems.length}</span></h4>
                     </div>
-                    <div className="card-body">
+                    <div className="card-body" style={{maxHeight: "350px", overflow: "auto"}}>
                         {props.cartItems.map(element=>
                             <div className="bg-light border rounded p-2 mb-2 shadow-sm d-flex" key={element.id}>
                                 <p className="m-0 flex-1" style={{flex: "1"}}>{element.name} <b>x {element.buyKG}</b></p>
@@ -57,8 +58,8 @@ export default function Navbar(props) {
                     </div>
                     <div className="card-footer p-0">
                         <div className="d-flex justify-content-between">
-                            <div className="py-3 px-4 font-weight-bold"><span className="text-secondary">Total:</span> Rs. {calcTotal()}</div>
-                            <button className="btn btn-dark m-0 rounded-0 px-4" onClick={(e)=>closeCart(e)}>Close</button>
+                            <div className="py-2 pl-4 font-weight-bold"><span className="text-secondary fz-14">Total:</span> Rs. {calcTotal()}</div>
+                            <button className="btn btn-success m-0 rounded-0 px-4 fz-14" onClick={(e)=>closeCart(e)}>Checkout</button>
                         </div>
                     </div>
                 </div>

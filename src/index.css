@@ -43,8 +43,11 @@ body{
 .cart-icon:hover{
     opacity: 1;
 }
+.my-nav .btn:focus{
+    box-shadow: none;
+}
 .my-nav .active{
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    border: 1px solid var(--dk);
 }
 .opacity-100{
     opacity: 1;

@@ -13,7 +13,6 @@ export default class App extends Component {
                 img2: "./imgs/food/sample.png",
                 price: 32,
                 category: "fruit",
-                buyKG: 0
             },
             {
                 id: v4(),
@@ -22,7 +21,6 @@ export default class App extends Component {
                 img2: "./imgs/food/sample.png",
                 price: 26,
                 category: "vegetable",
-                buyKG: 0
             },
             {
                 id: v4(),
@@ -31,7 +29,6 @@ export default class App extends Component {
                 img2: "./imgs/food/sample.png",
                 price: 40,
                 category: "fruit",
-                buyKG: 0
             },
             {
                 id: v4(),
@@ -40,7 +37,6 @@ export default class App extends Component {
                 img2: "./imgs/food/sample.png",
                 price: 15,
                 category: "vegetable",
-                buyKG: 0
             },
             {
                 id: v4(),
@@ -49,7 +45,6 @@ export default class App extends Component {
                 img2: "./imgs/food/sample.png",
                 price: 25,
                 category: "fruit",
-                buyKG: 0
             },
             {
                 id: v4(),
@@ -58,7 +53,6 @@ export default class App extends Component {
                 img2: "./imgs/food/sample.png",
                 price: 20,
                 category: "fruit",
-                buyKG: 0
             },
             {
                 id: v4(),
@@ -67,7 +61,6 @@ export default class App extends Component {
                 img2: "./imgs/food/sample.png",
                 price: 50,
                 category: "vegetable",
-                buyKG: 0
             },
             {
                 id: v4(),
@@ -76,135 +69,16 @@ export default class App extends Component {
                 img2: "./imgs/food/sample.png",
                 price: 35,
                 category: "fruit",
-                buyKG: 0
             },
         ],
 
         filteredProducts: [],
         show_details: {},
-        cartItems: [
-            {
-                id: v4(),
-                name: "Banana",
-                img: "./imgs/food/banana.png",
-                img2: "./imgs/food/sample.png",
-                price: 32,
-                category: "fruit",
-                buyKG: 1
-            },
-            {
-                id: v4(),
-                name: "Beet",
-                img: "./imgs/food/beet.png",
-                img2: "./imgs/food/sample.png",
-                price: 26,
-                category: "vegetable",
-                buyKG: 5
-            },
-            {
-                id: v4(),
-                name: "Watermelon",
-                img: "./imgs/food/watermelon.png",
-                img2: "./imgs/food/sample.png",
-                price: 35,
-                category: "fruit",
-                buyKG: 3
-            },
-            {
-                id: v4(),
-                name: "Kiwi",
-                img: "./imgs/food/kiwi.png",
-                img2: "./imgs/food/sample.png",
-                price: 25,
-                category: "fruit",
-                buyKG: 4
-            },
-            {
-                id: v4(),
-                name: "Raspberry",
-                img: "./imgs/food/raspberry.png",
-                img2: "./imgs/food/sample.png",
-                price: 20,
-                category: "fruit",
-                buyKG: 2
-            },
-            {
-                id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
-                category: "vegetable",
-                buyKG: 1
-            },
-            {
-                id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
-                category: "vegetable",
-                buyKG: 1
-            },
-            {
-                id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
-                category: "vegetable",
-                buyKG: 1
-            },
-            {
-                id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
-                category: "vegetable",
-                buyKG: 1
-            },
-            {
-                id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
-                category: "vegetable",
-                buyKG: 1
-            },
-            {
-                id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
-                category: "vegetable",
-                buyKG: 1
-            },
-            {
-                id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
-                category: "vegetable",
-                buyKG: 1
-            },
-            {
-                id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
-                category: "vegetable",
-                buyKG: 1
-            },
-        ]
+        cartItems: []
     }
 
 
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
         this.setState({filteredProducts: [...this.state.products]});
     }
     
@@ -230,10 +104,32 @@ export default class App extends Component {
         e.target.classList.add("active");
     }
 
+    addToCartHandler = (obj, alreadyInCart) => {
+        console.log(obj, alreadyInCart);
+        if(alreadyInCart){
+            let i;
+            let arr = [...this.state.cartItems];
+            this.state.cartItems.forEach((element, index)=>{
+                if(element.id===obj.id){
+                    i=index;
+                    console.log(i);
+                }
+            });
+            arr.splice(i, 1, obj);
+            console.log(arr);
+            this.setState({cartItems: [...arr]});
+            alert("Item updated to cart");
+        }
+        else{
+            this.setState({cartItems: [...this.state.cartItems, obj]});
+            alert("Item added to cart");
+        }
+    }
+
     
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row no-gutters">
                     <div className="col-md-4 left-sidebar">
                         <Brand />
@@ -244,7 +140,7 @@ export default class App extends Component {
                 </div>
                 <div className="row no-gutters">
                     <div className="col-md-4 left-sidebar">
-                        <Details eachProduct={this.state.show_details} />
+                        <Details eachProduct={this.state.show_details} cartItems={this.state.cartItems} addToCartHandler={this.addToCartHandler} />
                     </div>
                     <div className="col-md-8 right-sidebar">
                         <Food filteredProducts={this.state.filteredProducts} showDetailsHandler={this.showDetailsHandler} categoryHandler={this.categoryHandler} />
