@@ -10,7 +10,6 @@ export default class App extends Component {
                 id: v4(),
                 name: "Banana",
                 img: "./imgs/food/banana.png",
-                img2: "./imgs/food/sample.png",
                 price: 32,
                 category: "fruit",
             },
@@ -18,7 +17,6 @@ export default class App extends Component {
                 id: v4(),
                 name: "Beet",
                 img: "./imgs/food/beet.png",
-                img2: "./imgs/food/sample.png",
                 price: 26,
                 category: "vegetable",
             },
@@ -26,7 +24,6 @@ export default class App extends Component {
                 id: v4(),
                 name: "Grape",
                 img: "./imgs/food/grape.png",
-                img2: "./imgs/food/sample.png",
                 price: 40,
                 category: "fruit",
             },
@@ -34,7 +31,6 @@ export default class App extends Component {
                 id: v4(),
                 name: "Soy",
                 img: "./imgs/food/soy.png",
-                img2: "./imgs/food/sample.png",
                 price: 15,
                 category: "vegetable",
             },
@@ -42,7 +38,6 @@ export default class App extends Component {
                 id: v4(),
                 name: "Kiwi",
                 img: "./imgs/food/kiwi.png",
-                img2: "./imgs/food/sample.png",
                 price: 25,
                 category: "fruit",
             },
@@ -50,23 +45,20 @@ export default class App extends Component {
                 id: v4(),
                 name: "Raspberry",
                 img: "./imgs/food/raspberry.png",
-                img2: "./imgs/food/sample.png",
                 price: 20,
                 category: "fruit",
             },
             {
                 id: v4(),
-                name: "Mushroom",
-                img: "./imgs/food/mushroom.png",
-                img2: "./imgs/food/sample.png",
-                price: 50,
+                name: "Tomato",
+                img: "./imgs/food/tomato.png",
+                price: 30,
                 category: "vegetable",
             },
             {
                 id: v4(),
                 name: "Watermelon",
                 img: "./imgs/food/watermelon.png",
-                img2: "./imgs/food/sample.png",
                 price: 35,
                 category: "fruit",
             },
@@ -118,24 +110,26 @@ export default class App extends Component {
             arr.splice(i, 1, obj);
             console.log(arr);
             this.setState({cartItems: [...arr]});
-            alert("Item updated to cart");
         }
         else{
             this.setState({cartItems: [...this.state.cartItems, obj]});
-            alert("Item added to cart");
         }
     }
 
+    delFromCartHandler = (delItem) => {
+        const arr = this.state.cartItems.filter(element=>element.id!==delItem.id);
+        this.setState({cartItems: [...arr]});
+    }
     
     render() {
         return (
-            <div className="container">
+            <div className="container-fluid my-3">
                 <div className="row no-gutters">
                     <div className="col-md-4 left-sidebar">
                         <Brand />
                     </div>
                     <div className="col-md-8 right-sidebar">
-                        <Navbar cartItems={this.state.cartItems} />
+                        <Navbar cartItems={this.state.cartItems} delFromCartHandler={this.delFromCartHandler} />
                     </div>
                 </div>
                 <div className="row no-gutters">

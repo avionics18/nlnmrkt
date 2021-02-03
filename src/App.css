@@ -4,6 +4,11 @@ p{
     font-size: 14px;
 }
 
+.py-36 {
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+
 .bg-dk{
     background-color: var(--dk);
 }

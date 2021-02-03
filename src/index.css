@@ -74,43 +74,54 @@ body{
 }
 
 /* Details left  */
-.counter-btn{
-    background-color: transparent;
-    border: none;
-    padding: 3px 10px;
-    outline: none !important;
-}
-.counter-btn-left:active{
-    box-shadow: inset -3px 0 8px rgba(0,0,0,0.25);
-}
-.counter-btn-right:active{
-    box-shadow: inset 3px 0 8px rgba(0,0,0,0.25);
-}
-#item-no{
-    padding: 3px 20px;
-}
-#item-price {
-    padding: 3px 30px;
-}
-.addToCart-btn{
-    display: block;
+#display-added, #display-updated{
     width: 100%;
-    padding: 12px 0;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    outline: none !important;
-    border-radius: 5px;
-    box-shadow: 0 6px 0 #811e28;
-    cursor: pointer;
-    transition: 0.25s;
+    height: 100%;
+    background-color: rgba(255,255,255,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
 }
-.addToCart-btn:active{
-    box-shadow: 0 0 0 #811e28;
-    transform: translateY(4px);
+.tick-wrapper{
+  height: 150px;
 }
-.addToCart-btn:hover{
-    background-color: #e73546;
+.tick-circle{
+  padding: 20px 28px;
+  border-radius: 100px;
+  color: white;
+  overflow: hidden;
+}
+.bg-grad-red{
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+}
+.bg-grad-blue{
+    background-color: #045de9;
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+}
+.bakr{
+  font-size: 30px;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.slide-up{
+  animation: slideup 0.8s cubic-bezier(.34,.42,.65,1.26);
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideup{
+  from{opacity:0.4;transform:translateY(30px)};
+  to{opacity:1;transform:translateY(0px)};
+}
+
+.zoom-out{
+  animation: zoomout 0.4s cubic-bezier(.34,.42,.68,1.45);
+  animation-fill-mode: forwards;
+}
+@keyframes zoomout{
+  from{transform:scale(0)};
+  to{transform:scale(1)};
 }
 
 
@@ -121,4 +132,17 @@ body{
 }
 .product-card:hover{
     border-color: var(--dk);
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 500px) {
+  body { background-color: var(--lt); }
+  #potha { margin-bottom: 1.5rem; }
+  #potha > div { margin-bottom: 10px; }
+  .brand .input-group { margin-bottom: 1rem; }
 }

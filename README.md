@@ -1,3 +1,9 @@
+# NLN**MRKT**
+
+> E-commerce Store - Stores retails food products like fresh vegetables, fresh fruits, groceries, dairy products, breads, fruit juice and staples.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

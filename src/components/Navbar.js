@@ -52,7 +52,7 @@ export default function Navbar(props) {
                         {props.cartItems.map(element=>
                             <div className="bg-light border rounded p-2 mb-2 shadow-sm d-flex" key={element.id}>
                                 <p className="m-0 flex-1" style={{flex: "1"}}>{element.name} <b>x {element.buyKG}</b></p>
-                                <button className="del-btn rounded">X</button>
+                                <button className="del-btn rounded" onClick={()=>props.delFromCartHandler(element)}>X</button>
                             </div>
                         )}
                     </div>
@@ -65,7 +65,7 @@ export default function Navbar(props) {
                 </div>
             </div>
 
-            <div className="row no-gutters pt-4">
+            <div className="row no-gutters pt-4" id="potha">
                 <div className="col-md-6">
                     <div className="px-3">
                         <div className="card border-0 bg-lt px-3 py-2 rounded-lg">
